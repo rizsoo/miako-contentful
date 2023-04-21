@@ -6,6 +6,10 @@ import { BsFacebook, BsInstagram } from 'react-icons/bs'
 export const Footer = ({ footer }) => {
     return (
         <div style={{ marginTop: "55px" }}>
+            <Socials>
+                <a href={'https://www.facebook.com/miako.etterem/'} target='_blank'><BsFacebook /></a>
+                <a href={'https://www.instagram.com/mi.a.ko/'} target='_blank'><BsInstagram /></a>
+            </Socials>
             <FooterBox>
                 <Content>
                     <MenuList>
@@ -22,10 +26,6 @@ export const Footer = ({ footer }) => {
                     </span>
                 </Content>
             </FooterBox>
-            <Socials>
-                <a href={'https://www.facebook.com/miako.etterem/'} target='_blank'><BsFacebook /></a>
-                <a href={'https://www.instagram.com/mi.a.ko/'} target='_blank'><BsInstagram /></a>
-            </Socials>
         </div>
     )
 }
@@ -35,7 +35,7 @@ export const FooterBox = styled.div`
     height: 100%;
     min-height: 170px;
     padding: 40px 0;
-    background-color: black;
+    background-color: #151515;
     display: flex;
     align-items: center;
     justify-content: center;
@@ -57,21 +57,27 @@ export const FooterBox = styled.div`
 `
 
 export const Socials = styled.div`
-    background-color: #242424;
+    background-color: #1f1f1f;
     display: flex;
     align-items: center;
     justify-content: center;
     gap: 20px;
-    font-size: 20px;
+    font-size: 30px;
     padding: 15px;
-    color: white;
+    a {
+        color: grey;
+        transition: all ease 0.2s;
+        &:hover {
+            color: lightgrey;
+        }
+    }
     @media (max-width: 650px) {
         display: none;
     }
 `
 
 export const Content = styled.div`
-    width: 1050px;
+    width: 1400px;
     max-width: calc(100vw - 60px);
     display: flex;
     align-items: center;

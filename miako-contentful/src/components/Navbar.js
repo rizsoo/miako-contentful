@@ -5,13 +5,13 @@ import { Link } from 'gatsby';
 import { BsFacebook, BsInstagram } from 'react-icons/bs'
 import { BiMenuAltLeft } from 'react-icons/bi'
 // import logo from '../assets/eleven_logo_noblack.png'
-import bg from '../assets/img/miak.jpg'
 
-export const Navbar = ({ navbar, lang }) => {
+export const Navbar = ({ navbar, slogan, cover, lang }) => {
+
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <NavBox bg={bg}>
+        <NavBox bg={cover}>
             <MobileBtn>
                 <BiMenuAltLeft onClick={() => setIsOpen(!isOpen)} />
                 <Link to={lang.node_locale === "hu" ? "/" : "/en"}>
@@ -37,7 +37,7 @@ export const Navbar = ({ navbar, lang }) => {
                     </Socials>
                 </ul>
             </NavContent>
-            <Slogan>Ételek, borok, szállás</Slogan>
+            <Slogan>{slogan}</Slogan>
         </NavBox>
     )
 }
@@ -81,7 +81,6 @@ export const NavContent = styled.div`
     display: flex;
 
     justify-content: space-between;
-    align-items: center;
     a {
         display: flex;
         flex-direction: column;
@@ -133,9 +132,12 @@ export const NavContent = styled.div`
         @media (max-width: 800px) {
             font-size: 25px;
         }
+        text-shadow: 0px 0px 10px #0000005B;
+        color: white;
         transition: all ease 0.15s;
         &:hover {
-            color: white;
+            color: black;
+            text-shadow: unset;
         }
     }
     @media (max-width: 800px) {
@@ -152,7 +154,7 @@ export const NavElement = styled.li`
     display: flex;
     margin: 0;
     align-items: center;
-    ${props => props.active ? "color: white;" : "color: grey;"};
+    ${props => props.active ? "color: grey !important;" : "color: white !important;"};
     a {
         display: flex;
         transform: scale(1.3);
@@ -215,6 +217,8 @@ export const Slogan = styled.h2`
     left: 50%;
     transform: translate(-50%, -50%);
     width: max-content;
+    max-width: 90vw;
+    text-align: center;
     height: auto;
     font-size: 100px;
     color: #ffffff4D;

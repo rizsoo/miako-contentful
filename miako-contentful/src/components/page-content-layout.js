@@ -7,9 +7,11 @@ import { Localization } from './Localization'
 import { BLOCKS, INLINES } from "@contentful/rich-text-types"
 import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { Footer } from './Footer'
+import { SimpleLayout } from './SimpleLayout/SimpleLayout'
+import { Gallery } from './Gallery/Gallery'
 
-export const PageContentLayout = ({ title, content, navbar, featuredImage, footer, details, contentType, collectiveApplications }) => {
-
+export const PageContentLayout = ({ title, content, navbar, footer, details }) => {
+    console.log(details);
     const [openPopup, setOpenPopup] = useState(false)
 
     const options = {
@@ -24,20 +26,28 @@ export const PageContentLayout = ({ title, content, navbar, featuredImage, foote
                 let link = node.data.uri
                 return <a href={link} target={link.includes("http") && "_blank"} rel="noreferrer">{node.content[0].value}</a>
             },
-            // [BLOCKS.EMBEDDED_ENTRY]: (node) => {
-            //     let data = node.data.target
-            //     switch (data && data.__typename) {
-            //         case "ContentfulTrainingsList":
-            //             return (
-            //                 <TrainingsCards
-            //                     props={data.events}
-            //                     lang={details}
-            //                 />
-            //             )
-            //         default:
-            //             return null
-            //     }
-            // }
+            [BLOCKS.EMBEDDED_ENTRY]: (node) => {
+                let data = node.data.target
+                switch (data && data.__typename) {
+                    case "ContentfulSimpleLayout":
+                        return (
+                            <SimpleLayout
+                                props={data}
+                                options={options}
+                                lang={details}
+                            />
+                        )
+                    case "ContentfulGalleryLayout":
+                        return (
+                            <Gallery
+                                props={data}
+                                lang={details}
+                            />
+                        )
+                    default:
+                        return null
+                }
+            }
         }
     }
 
@@ -45,7 +55,7 @@ export const PageContentLayout = ({ title, content, navbar, featuredImage, foote
 
     return (
         <div>
-            <Navbar navbar={navbar} lang={details} />
+            <Navbar navbar={navbar} slogan={details.slogan && details.slogan} cover={details.image && details.image.url} lang={details} />
             <div style={{ minHeight: "calc(100vh - 317px)" }}>
                 <PageTitle isHome={details.slug}>{details.slug !== "home" && title}</PageTitle>
                 <PageContent>
@@ -61,8 +71,8 @@ export const PageContentLayout = ({ title, content, navbar, featuredImage, foote
 }
 
 export const PageTitle = styled.h2`
-    max-width: 1500px;
-    margin: 30px auto;
+    max-width: 1300px;
+    margin: 40px auto;
     padding: ${props => props.isHome === "home" ? "10px" : "20px"};
     font-size: 50px;
     text-align: center;
@@ -80,19 +90,23 @@ export const CoverImg = styled.img`
 `
 export const Content = styled.div`
     width: 100%;
-    max-width: 1500px;
+    max-width: 1300px;
     margin: 0 auto;
+    background-color: white;
+    color: black;
+    padding: 50px 40px;
 `
 export const PageContent = styled.div`
-    max-width: 1500px;
+    max-width: 1300px;
     margin: 0 auto;
-    padding: 0 20px;
+    padding: 0 50px;
     display: flex;
     justify-content: space-between;
     gap: 20px;
     color: #F5F5F5;
     @media (max-width: 650px) {
         flex-direction: column;
+        padding: 0 20px;
     }
 `
 
@@ -103,20 +117,4 @@ export const Paragraph = styled.p`
     }
 `
 
-export const Gallery = styled.div`
-    max-width: 1100px;
-    margin: 0 auto;
-    padding: 30px 20px;
-    display: grid;
-    gap: 5px;
-    grid-template-columns: repeat(2, 1fr);
-    img {
-        height: 100%;
-        width: 100%;
-        aspect-ratio: 1.5/1;
-        object-fit: cover;
-    }
-    @media (max-width: 650px) {
-        grid-template-columns: repeat(1, 1fr);
-    }
-`
+
