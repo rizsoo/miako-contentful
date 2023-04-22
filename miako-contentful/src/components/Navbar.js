@@ -28,7 +28,7 @@ export const Navbar = ({ navbar, slogan, cover, lang }) => {
                 <ul>
                     {navbar.elements.map((el, i) => {
                         return (
-                            <Link key={i} to={`/${el.node_locale}/${el.slug}`}><NavElement active={el.title === lang.title}>{el.title}</NavElement></Link>
+                            <Link key={i} to={lang.node_locale === "hu" ? `/${el.slug}` : `/${el.node_locale}/${el.slug}`}><NavElement active={el.title === lang.title}>{el.title}</NavElement></Link>
                         )
                     })}
                     <Socials>
@@ -50,7 +50,7 @@ export const NavBox = styled.div`
     background: url(${props => props.bg});
     background-size: cover;
     background-position: center;
-    height: 100vh;
+    ${props => props.bg ? "height: 100vh;" : null}    
 `
 export const NavContent = styled.div`
     margin: 0 auto;

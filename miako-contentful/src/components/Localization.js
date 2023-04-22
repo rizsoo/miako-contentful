@@ -42,7 +42,6 @@ export const LangaugeSelector = styled.div`
     right: 12px;
     bottom: 12px;
     width: 60px;
-    width: 100%;
 
     color: black;
     display: flex;

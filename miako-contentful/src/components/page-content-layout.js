@@ -9,6 +9,8 @@ import { renderRichText } from "gatsby-source-contentful/rich-text"
 import { Footer } from './Footer'
 import { SimpleLayout } from './SimpleLayout/SimpleLayout'
 import { Gallery } from './Gallery/Gallery'
+import { MenuList } from './Menulist/MenuList'
+import { ShortLayout } from './SimpleLayout/ShortLayout'
 
 export const PageContentLayout = ({ title, content, navbar, footer, details }) => {
     console.log(details);
@@ -37,9 +39,24 @@ export const PageContentLayout = ({ title, content, navbar, footer, details }) =
                                 lang={details}
                             />
                         )
+                    case "ContentfulShortLayout":
+                        return (
+                            <ShortLayout
+                                props={data}
+                                options={options}
+                                lang={details}
+                            />
+                        )
                     case "ContentfulGalleryLayout":
                         return (
                             <Gallery
+                                props={data}
+                                lang={details}
+                            />
+                        )
+                    case "ContentfulMenuList":
+                        return (
+                            <MenuList
                                 props={data}
                                 lang={details}
                             />
@@ -64,7 +81,7 @@ export const PageContentLayout = ({ title, content, navbar, footer, details }) =
                     </Content>
                 </PageContent>
             </div>
-            <Footer footer={footer} />
+            <Footer footer={footer} lang={details} />
             <Localization data={details} />
         </div>
     )
@@ -94,7 +111,10 @@ export const Content = styled.div`
     margin: 0 auto;
     background-color: white;
     color: black;
-    padding: 50px 40px;
+    padding: 50px 150px;
+    a {
+        color: #279BDE;
+    }
 `
 export const PageContent = styled.div`
     max-width: 1300px;

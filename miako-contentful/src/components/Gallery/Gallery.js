@@ -2,13 +2,12 @@ import React from 'react'
 import styled from 'styled-components'
 
 export const Gallery = ({ props }) => {
-    console.log(props);
+
     return (
         <Template>
             {props.images.map((el, i) => {
-                console.log(el);
                 return (
-                    <img src={el.url} alt='' />
+                    <img key={i} src={el.url} alt='' />
                 )
             })}
         </Template>

@@ -27,7 +27,7 @@ exports.createPages = async ({ graphql, actions }) => {
 
     data.pages.nodes.forEach(node => {
         createPage({
-            path: (node.slug === "home" && node.node_locale === "hu") ? `/` : ((node.slug === "home" && node.node_locale !== "hu") ? `/${node.node_locale}` : `/${node.node_locale}/${node.slug}`),
+            path: (node.node_locale === "hu") ? `/${node.slug === "home" ? `` : `${node.slug}`}` : ((node.slug === "home") ? `/${node.node_locale}` : `/${node.node_locale}/${node.slug}`),
             component: path.resolve(`src/templates/page-template.js`),
             context: {
                 slug: node.slug,

@@ -3,7 +3,7 @@ import styled from 'styled-components'
 import { Link } from 'gatsby'
 import { BsFacebook, BsInstagram } from 'react-icons/bs'
 
-export const Footer = ({ footer }) => {
+export const Footer = ({ footer, lang }) => {
     return (
         <div style={{ marginTop: "55px" }}>
             <Socials>
@@ -12,14 +12,14 @@ export const Footer = ({ footer }) => {
             </Socials>
             <FooterBox>
                 <Content>
-                    <MenuList>
+                    <List>
                         <li className='comment' style={{ color: "grey", fontSize: "13px", fontWeight: "300", marginBottom: "10px" }}>Egyéb oldalak</li>
                         {footer.elements.map((el, i) => {
                             return (
-                                <Link key={i} to={`/${el.node_locale}/${el.slug}`} ><MenuElement >{el.title}</MenuElement></Link>
+                                <Link key={i} to={lang.node_locale === "hu" ? `/${el.slug}` : `/${el.node_locale}/${el.slug}`} ><MenuElement >{el.title}</MenuElement></Link>
                             )
                         })}
-                    </MenuList>
+                    </List>
                     <span>
                         <p>Created by Kristóf Fehér</p>
                         <p>COPYRIGHT © Káli-medencei Borok Háza Kft.</p>
@@ -89,7 +89,7 @@ export const Content = styled.div`
     }
 `
 
-export const MenuList = styled.ul`
+export const List = styled.ul`
     color: white;
     margin: 0;
     li {

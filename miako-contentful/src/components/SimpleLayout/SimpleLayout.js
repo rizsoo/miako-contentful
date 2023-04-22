@@ -5,6 +5,7 @@ import styled from 'styled-components';
 export const SimpleLayout = ({ props, options }) => {
 
     const output = props && renderRichText(props.content, options)
+
     return (
         <Content>
             <img src={props.image.url} alt='' />
@@ -17,7 +18,7 @@ export const Content = styled.div`
     display: grid;
     grid-template-columns: 1fr 1fr;
     background-color: white;
-    margin: -70px -40px;
+    margin: -70px -150px;
     img {
         height: 100%;
         object-fit: cover;

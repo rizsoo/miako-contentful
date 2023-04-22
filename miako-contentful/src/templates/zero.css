@@ -29,12 +29,12 @@ ul {
 }
 
 li {
-    list-style: "-";
+    list-style: "×";
     margin-left: 20px;
 }
 
 li p {
-    margin-bottom: 2px;
+    margin-bottom: 5px;
     margin-left: 10px;
 }
 
