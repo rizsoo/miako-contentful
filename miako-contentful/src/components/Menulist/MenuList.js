@@ -1,8 +1,8 @@
 import React from 'react'
 import styled from 'styled-components';
 
-export const MenuList = ({ props }) => {
-    console.log(props.elements.description);
+export const MenuList = ({ props, lang }) => {
+
     return (
         <>
             <Title>{props.title}</Title>
@@ -11,10 +11,10 @@ export const MenuList = ({ props }) => {
                 return (
                     <Box>
                         <span>
-                            <b>{el.title}</b>
-                            <Allergers>{el.description && el.description.description}</Allergers>
+                            <p><b>{el.title}</b> {el.offer && <Offer>{lang.node_locale === "hu" ? "Heti ajánlat" : "Weekly offer"}</Offer>}</p>
+                            <Price>{el.price}</Price>
                         </span>
-                        <Price>{el.price}</Price>
+                        <Allergers>{el.description && el.description.description}</Allergers>
                     </Box>
                 )
             })}
@@ -23,8 +23,14 @@ export const MenuList = ({ props }) => {
 }
 
 export const Box = styled.div`
-    display: flex;
-    justify-content: space-between;
+    margin-bottom: 35px;
+    span {
+        display: flex;
+        justify-content: space-between;
+        @media (max-width: 768px) {
+            flex-direction: column;
+        }
+    }
 `
 
 export const Title = styled.h2`
@@ -35,7 +41,6 @@ export const Allergers = styled.p`
     font-size: 13px;
     font-weight: 200;
     color: grey;
-    margin-top: 10px;
 `
 
 export const Line = styled.hr`
@@ -45,4 +50,17 @@ export const Line = styled.hr`
 
 export const Price = styled.p`
     font-weight: 300;
+    white-space: nowrap;
+`
+export const Offer = styled.i`
+    font-size: 14px;
+    padding: 2px 6px 2px 4px;
+    border: 1px solid green;
+    background-color: lightgreen;
+    border-radius: 4px;
+    white-space: nowrap;
+    margin: 0 0 0 10px;
+    @media (max-width: 768px) {
+        margin: 0;
+    }
 `

@@ -26,7 +26,18 @@ export const Localization = ({ data }) => {
         <LangaugeSelector>
             <Flag icon={isOpen}>
                 {languages.filter(el => el.country_code !== data.node_locale).map(({ code, name, country_code }) => (
-                    <Link key={name} to={data.slug === "home" && data.node_locale === "en" ? '/' : data.slug === "home" ? `/${country_code}` : `/${country_code}/${data.slug}`}>
+                    <Link 
+                        key={name} 
+                        to={
+                            data.slug === "home"
+                            ? data.node_locale === "hu"
+                                ? '/en' // English "home" link
+                                : '/'   // Default Hungarian "home" link
+                            : data.node_locale === "hu"
+                                ? `/en/${data.slug}` // Other English links
+                                : `/${data.slug}`    // Other Hungarian links
+                        }
+                        >
                         <img src={code} alt='' key={code} onClick={() => { setIsOpen(true) }} />
                     </Link>
                 ))}

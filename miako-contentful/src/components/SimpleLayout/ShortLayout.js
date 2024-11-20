@@ -37,6 +37,10 @@ export const Content = styled.div`
         a {
             color: white;
         }
+        @media (max-width: 650px) {
+            padding: 20px 20px 40px 20px;
+            height: auto;
+        }
     }
     button {
         padding: 10px 15px;
@@ -52,17 +56,21 @@ export const Content = styled.div`
         object-fit: cover;
         object-position: center;
         min-height: 100%;
+        @media (max-width: 650px) {
+            max-height: 400px;
+        }
     }
     @media (max-width: 650px) {
         grid-template-columns: 1fr;
+        margin: -20px;
+        display: flex;
+        flex-direction: column;
+        height: unset;
     }
 `
 export const Text = styled.div`
     color: white;
     h2 {
         margin: 0 0 20px 0;
-    }
-    @media (max-width: 650px) {
-        padding: 40px 20px;
     }
 `

@@ -37,7 +37,7 @@ export const Navbar = ({ navbar, slogan, cover, lang }) => {
                     </Socials>
                 </ul>
             </NavContent>
-            <Slogan>{slogan}</Slogan>
+            {cover && <Slogan>{slogan}</Slogan>}
         </NavBox>
     )
 }
@@ -56,6 +56,7 @@ export const NavContent = styled.div`
     margin: 0 auto;
     padding: 35px 50px;
     color: white;
+    z-index: 100;
     @media (max-width: 800px) {
         flex-direction: column;
         align-items: start;
@@ -68,7 +69,6 @@ export const NavContent = styled.div`
         ${props => props.isOpen ? "opacity: 1" : "opacity: 0.9"};
         transition: all ease 0.5s;
 
-        z-index: 100;
     }
     h1 {
         letter-spacing: 0.2px;
@@ -142,7 +142,7 @@ export const NavContent = styled.div`
     }
     @media (max-width: 800px) {
         background-color: black;
-        height: 100%;
+        padding-bottom: 60px;
         .logo {
             display: none;
         }

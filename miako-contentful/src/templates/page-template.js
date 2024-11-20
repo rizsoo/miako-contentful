@@ -8,7 +8,7 @@ import { SEO } from '../components/Seo';
 import { PageContentLayout } from '../components/page-content-layout';
 
 const PageTemplate = ({ data: { page, navbar, footer } }) => {
-  // console.log(page);
+
   const [isLoaded, setIsLoaded] = useState(false);
 
   useEffect(() => {
@@ -94,6 +94,29 @@ query MyQuery($slug: String, $node_locale: String) {
                   description
                 }
                 price
+                icon {
+                  url
+                }
+                offer
+              }
+            }
+            ... on ContentfulRoomList {
+              __typename
+              contentful_id
+              title
+              subtext
+              footer {
+                footer
+              }
+              elements {
+                title
+                description {
+                  description
+                }
+                price
+                icon {
+                  url
+                }
               }
             }
          }  

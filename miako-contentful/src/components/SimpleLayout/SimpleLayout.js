@@ -25,6 +25,7 @@ export const Content = styled.div`
     }
     @media (max-width: 650px) {
         grid-template-columns: 1fr;
+        margin: -20px;
     }
 `
 export const Text = styled.div`

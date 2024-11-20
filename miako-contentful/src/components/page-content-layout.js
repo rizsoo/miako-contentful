@@ -11,9 +11,10 @@ import { SimpleLayout } from './SimpleLayout/SimpleLayout'
 import { Gallery } from './Gallery/Gallery'
 import { MenuList } from './Menulist/MenuList'
 import { ShortLayout } from './SimpleLayout/ShortLayout'
+import RoomList from './Rooms/RoomList'
 
 export const PageContentLayout = ({ title, content, navbar, footer, details }) => {
-    console.log(details);
+
     const [openPopup, setOpenPopup] = useState(false)
 
     const options = {
@@ -61,6 +62,13 @@ export const PageContentLayout = ({ title, content, navbar, footer, details }) =
                                 lang={details}
                             />
                         )
+                    case "ContentfulRoomList":
+                        return (
+                            <RoomList
+                                props={data}
+                                lang={details}
+                            />
+                        )
                     default:
                         return null
                 }
@@ -70,6 +78,7 @@ export const PageContentLayout = ({ title, content, navbar, footer, details }) =
 
     const output = content && renderRichText(content, options)
 
+    
     return (
         <div>
             <Navbar navbar={navbar} slogan={details.slogan && details.slogan} cover={details.image && details.image.url} lang={details} />
@@ -115,6 +124,10 @@ export const Content = styled.div`
     a {
         color: #279BDE;
     }
+    @media (max-width: 650px) {
+        flex-direction: column;
+        padding: 20px 20px 0 20px;
+    }
 `
 export const PageContent = styled.div`
     max-width: 1300px;
@@ -126,7 +139,7 @@ export const PageContent = styled.div`
     color: #F5F5F5;
     @media (max-width: 650px) {
         flex-direction: column;
-        padding: 0 20px;
+        padding: 0;
     }
 `
 
