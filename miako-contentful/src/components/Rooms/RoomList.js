@@ -21,9 +21,9 @@ export default function RoomList(props) {
                 {props.props.subtext}
               </AdditionalInfo>
               <Icons>
-              {room.icon.map(el => {
+              {room.icon.map((el, i) => {
                 return (
-                  <img src={el.url} />
+                  <img src={el.url} key={i} />
                 )
               })}
               </Icons>

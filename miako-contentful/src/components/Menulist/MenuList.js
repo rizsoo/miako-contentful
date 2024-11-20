@@ -9,7 +9,7 @@ export const MenuList = ({ props, lang }) => {
             <Line />
             {props.elements.map((el, i) => {
                 return (
-                    <Box>
+                    <Box key={i}>
                         <span>
                             <p><b>{el.title}</b> {el.offer && <Offer>{lang.node_locale === "hu" ? "Heti ajánlat" : "Weekly offer"}</Offer>}</p>
                             <Price>{el.price}</Price>

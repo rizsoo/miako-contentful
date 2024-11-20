@@ -1,6 +1,6 @@
 import React from 'react'
 import styled from 'styled-components'
-import { useState } from 'react'
+//import { useState } from 'react'
 
 import { Navbar } from './Navbar'
 import { Localization } from './Localization'
@@ -15,7 +15,7 @@ import RoomList from './Rooms/RoomList'
 
 export const PageContentLayout = ({ title, content, navbar, footer, details }) => {
 
-    const [openPopup, setOpenPopup] = useState(false)
+    //const [openPopup, setOpenPopup] = useState(false)
 
     const options = {
         renderNode: {
