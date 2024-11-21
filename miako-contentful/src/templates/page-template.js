@@ -53,6 +53,13 @@ query MyQuery($slug: String, $node_locale: String) {
         content {
           raw
           references {
+            ... on ContentfulAsset {
+              __typename
+              contentful_id
+              file {
+                url
+              }
+            }
             ... on ContentfulSimpleLayout {
               __typename
               contentful_id

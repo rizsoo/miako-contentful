@@ -14,9 +14,7 @@ import { ShortLayout } from './SimpleLayout/ShortLayout'
 import RoomList from './Rooms/RoomList'
 
 export const PageContentLayout = ({ title, content, navbar, footer, details }) => {
-
-    //const [openPopup, setOpenPopup] = useState(false)
-
+    
     const options = {
         renderNode: {
             [BLOCKS.EMBEDDED_ASSET]: (node) => {
@@ -106,6 +104,9 @@ export const PageTitle = styled.h2`
     @media (max-width: 800px) {
         font-size: 35px;
         text-align: left;
+        margin: 0px auto;
+        ${props => props.isHome === "home" ? "display: none;" : null};
+
     }
 `
 export const CoverImg = styled.img`

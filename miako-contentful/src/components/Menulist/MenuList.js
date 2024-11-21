@@ -7,11 +7,11 @@ export const MenuList = ({ props, lang }) => {
         <>
             <Title>{props.title}</Title>
             <Line />
-            {props.elements.map((el, i) => {
+            {props.elements.map((el, i) => {                
                 return (
                     <Box key={i}>
                         <span>
-                            <p><b>{el.title}</b> {el.offer && <Offer>{lang.node_locale === "hu" ? "Heti ajánlat" : "Weekly offer"}</Offer>}</p>
+                            <Name offer={el.offer}>{el.title}</Name>
                             <Price>{el.price}</Price>
                         </span>
                         <Allergers>{el.description && el.description.description}</Allergers>
@@ -35,6 +35,16 @@ export const Box = styled.div`
 
 export const Title = styled.h2`
     font-weight: 200;
+`
+export const Name = styled.p`
+    font-weight: 700;
+    ${props => props.offer === true ? (
+        `font-weight: 100;
+        margin: 0 auto -10px auto;
+        padding: 0 30px;
+        border-bottom: 0.5px solid grey;`
+    )
+        : null}   
 `
 
 export const Allergers = styled.p`

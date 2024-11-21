@@ -8,14 +8,16 @@ export const ShortLayout = ({ props, options, lang }) => {
     const output = props && renderRichText(props.content, options)
 
     return (
+        <Link to={lang.node_locale === "hu" ? `/${props.link.slug}` : `/${lang.node_locale}/${props.link.slug}`}>
         <Content>
             <img src={props.image.url} alt='' />
             <span>
                 <h2>{props.title}</h2>
                 <Text>{output}</Text>
-                <Link to={lang.node_locale === "hu" ? `/${props.link.slug}` : `/${lang.node_locale}/${props.link.slug}`}><button>{lang.node_locale === "hu" ? "Részletek" : "Read more"}</button></Link>
+                <button>{lang.node_locale === "hu" ? "Részletek" : "Read more"}</button>
             </span>
         </Content>
+        </Link>
     )
 }
 
@@ -27,9 +29,14 @@ export const Content = styled.div`
     margin: -70px -150px;
     overflow: hidden;
     height: 700px;
+    cursor: pointer;
     h2 {
         font-size: 90px;
         margin: 0;
+        @media (max-width: 650px) {
+            font-size: 35px;
+            margin-bottom: 15px;
+        }
     }
     span {
         height: 700px;
@@ -51,6 +58,9 @@ export const Content = styled.div`
         font-size: 16px;
         font-weight: 700;
         cursor: pointer;
+        @media (max-width: 650px) {
+            display: none;
+        }
     }
     img {
         object-fit: cover;
@@ -72,5 +82,10 @@ export const Text = styled.div`
     color: white;
     h2 {
         margin: 0 0 20px 0;
+    }
+    p {
+        @media (max-width: 650px) {
+            font-size: 12px;
+        }
     }
 `

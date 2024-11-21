@@ -22,9 +22,9 @@ export const Template = styled.div`
     gap: 15px;
     grid-template-columns: repeat(2, 1fr);
     img {
-        height: 100%;
+        height: auto;
         width: 100%;
-        aspect-ratio: 1.5/1;
+        aspect-ratio: 1.1/1;
         object-fit: cover;
     }
     @media (max-width: 650px) {

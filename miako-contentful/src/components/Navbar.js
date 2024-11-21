@@ -37,20 +37,32 @@ export const Navbar = ({ navbar, slogan, cover, lang }) => {
                     </Socials>
                 </ul>
             </NavContent>
-            {cover && <Slogan>{slogan}</Slogan>}
+            {(cover && lang.slug !== "home" ) && <Slogan>{slogan}</Slogan>}
+            {lang.slug !== "home" && <MobileBg src={cover} alt='' />}
         </NavBox>
     )
 }
 
 export const NavBox = styled.div`
-    @media (min-width: 800px) {
-        color: white;
-    }
     position: relative;
     background: url(${props => props.bg});
     background-size: cover;
     background-position: center;
     ${props => props.bg ? "height: 100vh;" : null}    
+    @media (min-width: 800px) {
+        color: white;
+    }
+    @media (max-width: 800px) {
+        background: unset;
+        height: auto;
+        ${props => props.bg ? "width: 100vw;" : null}    
+    } 
+`
+
+export const MobileBg = styled.img`
+    @media (min-width: 800px) {
+        display: none;
+    }
 `
 export const NavContent = styled.div`
     margin: 0 auto;
