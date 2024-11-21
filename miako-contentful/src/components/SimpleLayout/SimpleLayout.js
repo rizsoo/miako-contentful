@@ -21,6 +21,7 @@ export const Content = styled.div`
     margin: -70px -150px;
     img {
         width: 100%;
+        max-width: 100%;
         object-fit: cover;
     }
     @media (max-width: 650px) {
