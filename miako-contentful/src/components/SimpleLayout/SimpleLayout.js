@@ -20,6 +20,8 @@ export const Content = styled.div`
     background-color: white;
     margin: -70px -150px;
     img {
+        height: 100%;
+        max-height: 100%;
         width: 100%;
         max-width: 100%;
         object-fit: cover;
