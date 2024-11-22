@@ -11,7 +11,7 @@ export const Navbar = ({ navbar, slogan, cover, lang }) => {
     const [isOpen, setIsOpen] = useState(false);
 
     return (
-        <NavBox bg={cover}>
+        <NavBox bg={cover} role='navigation'>
             <MobileBtn>
                 <BiMenuAltLeft onClick={() => setIsOpen(!isOpen)} />
                 <Link to={lang.node_locale === "hu" ? "/" : "/en"}>
@@ -43,7 +43,7 @@ export const Navbar = ({ navbar, slogan, cover, lang }) => {
     )
 }
 
-export const NavBox = styled.div`
+export const NavBox = styled.nav`
     position: relative;
     background: url(${props => props.bg});
     background-size: cover;

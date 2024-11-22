@@ -10,7 +10,7 @@ export const Footer = ({ footer, lang }) => {
                 <a href={'https://www.facebook.com/miako.etterem/'} target='_blank'><BsFacebook /></a>
                 <a href={'https://www.instagram.com/mi.a.ko/'} target='_blank'><BsInstagram /></a>
             </Socials>
-            <FooterBox>
+            <FooterBox role='contentinfo'>
                 <Content>
                     <List>
                         <li className='comment' style={{ color: "grey", fontSize: "13px", fontWeight: "300", marginBottom: "10px" }}>Egyéb oldalak</li>
@@ -30,7 +30,7 @@ export const Footer = ({ footer, lang }) => {
     )
 }
 
-export const FooterBox = styled.div`
+export const FooterBox = styled.footer`
     width: 100vw;
     height: 100%;
     min-height: 170px;

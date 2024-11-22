@@ -83,7 +83,7 @@ export const PageContentLayout = ({ title, content, navbar, footer, details }) =
             <div style={{ minHeight: "calc(100vh - 317px)" }}>
                 <PageTitle isHome={details.slug}>{details.slug !== "home" && title}</PageTitle>
                 <PageContent>
-                    <Content>
+                    <Content role='main'>
                         {output}
                     </Content>
                 </PageContent>
@@ -115,7 +115,7 @@ export const CoverImg = styled.img`
     width: 100%;
     margin-bottom: 10px;
 `
-export const Content = styled.div`
+export const Content = styled.main`
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
