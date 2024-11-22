@@ -37,8 +37,8 @@ export const Navbar = ({ navbar, slogan, cover, lang }) => {
                     </Socials>
                 </ul>
             </NavContent>
-            {(cover) && <Slogan>{slogan}</Slogan>}
-            {lang.slug !== "home" && <MobileBg src={cover} alt='' />}
+            {(cover) && <Slogan isHome={lang.slug !== "home"}>{slogan}</Slogan>}
+            {(lang.slug !== "home" && cover) && <MobileBg src={cover} alt='' />}
         </NavBox>
     )
 }
@@ -53,7 +53,7 @@ export const NavBox = styled.nav`
         color: white;
     }
     @media (max-width: 800px) {
-        background: unset;
+        background: black;
         height: auto;
         ${props => props.bg ? "width: 100vw;" : null}    
     } 
@@ -69,6 +69,7 @@ export const NavContent = styled.div`
     padding: 35px 50px;
     color: white;
     z-index: 100;
+
     @media (max-width: 800px) {
         flex-direction: column;
         align-items: start;
@@ -80,7 +81,6 @@ export const NavContent = styled.div`
         ${props => props.isOpen ? "transform: translateX(0)" : "transform: translateX(-100%)"};
         ${props => props.isOpen ? "opacity: 1" : "opacity: 0.9"};
         transition: all ease 0.5s;
-
     }
     h1 {
         letter-spacing: 0.2px;
@@ -237,5 +237,6 @@ export const Slogan = styled.h2`
     margin: 0;
     @media (max-width: 800px) {
         font-size: 25px;
+        ${props => props.isHome === false ? "display: none;" : null};
     }
 `

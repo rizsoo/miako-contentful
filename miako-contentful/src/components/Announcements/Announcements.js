@@ -33,6 +33,8 @@ export const Box = styled.div`
     display: flex;
     align-items: center;
     width: 100%;
+    @media (max-width: 650px) {
+    }
 `
 
 export const Content = styled.div`
@@ -86,7 +88,12 @@ export const Content = styled.div`
         }
     }
     @media (max-width: 650px) {
-        margin: -20px;
+        margin: -20px 0 20px 0;
+        padding: 0;
+        width: 100%;
+        h2 {
+            font-size: 30px;
+        }
     }
 `
 export const Text = styled.div`
