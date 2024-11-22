@@ -16,7 +16,7 @@ const PageTemplate = ({ data: { page, navbar, footer } }) => {
   }, [page])
 
   return (
-    <>
+    <html>
       <Helmet>
         <title>{page.title}</title>
         <SEO title={page.title} description={"Mi a Kő Étterem"} />
@@ -43,7 +43,7 @@ const PageTemplate = ({ data: { page, navbar, footer } }) => {
             visible={true}
           />
         </div>}
-    </>
+    </html>
   )
 }
 
