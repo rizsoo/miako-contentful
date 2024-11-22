@@ -37,7 +37,7 @@ export const Navbar = ({ navbar, slogan, cover, lang }) => {
                     </Socials>
                 </ul>
             </NavContent>
-            {(cover && lang.slug !== "home" ) && <Slogan>{slogan}</Slogan>}
+            {(cover) && <Slogan>{slogan}</Slogan>}
             {lang.slug !== "home" && <MobileBg src={cover} alt='' />}
         </NavBox>
     )

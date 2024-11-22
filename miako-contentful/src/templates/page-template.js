@@ -107,6 +107,20 @@ query MyQuery($slug: String, $node_locale: String) {
                 offer
               }
             }
+            ... on ContentfulAnnouncements {
+              __typename
+              contentful_id
+              title
+              elements {
+                title
+                content {
+                  raw
+                }
+                link {
+                  slug
+                }
+              }
+            }
             ... on ContentfulRoomList {
               __typename
               contentful_id

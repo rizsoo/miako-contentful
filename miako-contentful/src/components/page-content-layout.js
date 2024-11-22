@@ -12,6 +12,7 @@ import { Gallery } from './Gallery/Gallery'
 import { MenuList } from './Menulist/MenuList'
 import { ShortLayout } from './SimpleLayout/ShortLayout'
 import RoomList from './Rooms/RoomList'
+import { Announcements } from './Announcements/Announcements'
 
 export const PageContentLayout = ({ title, content, navbar, footer, details }) => {
     
@@ -41,6 +42,14 @@ export const PageContentLayout = ({ title, content, navbar, footer, details }) =
                     case "ContentfulShortLayout":
                         return (
                             <ShortLayout
+                                props={data}
+                                options={options}
+                                lang={details}
+                            />
+                        )
+                    case "ContentfulAnnouncements":
+                        return (
+                            <Announcements
                                 props={data}
                                 options={options}
                                 lang={details}
@@ -83,7 +92,7 @@ export const PageContentLayout = ({ title, content, navbar, footer, details }) =
             <div style={{ minHeight: "calc(100vh - 317px)" }}>
                 <PageTitle isHome={details.slug}>{details.slug !== "home" && title}</PageTitle>
                 <PageContent>
-                    <Content role='main'>
+                    <Content role='main' isHome={details.slug}>
                         {output}
                     </Content>
                 </PageContent>
@@ -119,7 +128,7 @@ export const Content = styled.main`
     width: 100%;
     max-width: 1300px;
     margin: 0 auto;
-    background-color: white;
+    background-color: ${props => props.isHome === "home" ? "rgb(31, 31, 31)" : " white"};
     color: black;
     padding: 50px 150px;
     a {
