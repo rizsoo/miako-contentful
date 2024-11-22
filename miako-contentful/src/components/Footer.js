@@ -7,8 +7,8 @@ export const Footer = ({ footer, lang }) => {
     return (
         <div style={{ marginTop: "55px" }}>
             <Socials>
-                <a href={'https://www.facebook.com/miako.etterem/'} target='_blank'><BsFacebook /></a>
-                <a href={'https://www.instagram.com/mi.a.ko/'} target='_blank'><BsInstagram /></a>
+                <a href={'https://www.facebook.com/miako.etterem/'} target='_blank' aria-label='facebook'><BsFacebook /></a>
+                <a href={'https://www.instagram.com/mi.a.ko/'} target='_blank' aria-label='instagram'><BsInstagram /></a>
             </Socials>
             <FooterBox role='contentinfo'>
                 <Content>

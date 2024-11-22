@@ -16,7 +16,7 @@ const PageTemplate = ({ data: { page, navbar, footer } }) => {
   }, [page])
 
   return (
-    <html>
+    <html lang={page.node_locale}>
       <Helmet>
         <title>{page.title}</title>
         <SEO title={page.title} description={"Mi a Kő Étterem"} />
