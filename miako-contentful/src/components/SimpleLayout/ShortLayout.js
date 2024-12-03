@@ -33,9 +33,11 @@ export const Content = styled.div`
     h2 {
         font-size: 90px;
         margin: 0;
+        line-height: 100px;
+        margin: 35px 0 20px 0;
         @media (max-width: 650px) {
             font-size: 35px;
-            margin-bottom: 15px;
+            margin: 0 0 15px 0;
         }
     }
     span {
@@ -76,6 +78,7 @@ export const Content = styled.div`
         display: flex;
         flex-direction: column;
         height: unset;
+        border-top: 20px white solid;
     }
 `
 export const Text = styled.div`

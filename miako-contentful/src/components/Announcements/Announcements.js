@@ -4,9 +4,6 @@ import styled from 'styled-components';
 import { Link } from 'gatsby';
 
 export const Announcements = ({ props, options, lang }) => {
-    console.log(props);
-    
-
     
     return (
         <Box>
