@@ -30,13 +30,9 @@ module.exports = {
       },
     },
     `gatsby-plugin-image`,
-<<<<<<< HEAD
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     'gatsby-plugin-react-helmet',
-=======
-    "gatsby-plugin-react-helmet",
->>>>>>> 437fc96 (run)
     `gatsby-plugin-recaptcha`,
     `gatsby-plugin-sitemap`,
   ],
