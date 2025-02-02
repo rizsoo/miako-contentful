@@ -1,6 +1,6 @@
 require("dotenv").config({
   path: `.env.${process.env.NODE_ENV}`,
-})
+});
 
 /**
  * @type {import('gatsby').GatsbyConfig}
@@ -24,15 +24,19 @@ module.exports = {
       },
     },
     {
-      resolve: 'gatsby-plugin-manifest',
+      resolve: "gatsby-plugin-manifest",
       options: {
-        icon: 'src/assets/miako_fav.png',
+        icon: "src/assets/miako_fav.png",
       },
     },
     `gatsby-plugin-image`,
+<<<<<<< HEAD
     `gatsby-plugin-sharp`,
     `gatsby-transformer-sharp`,
     'gatsby-plugin-react-helmet',
+=======
+    "gatsby-plugin-react-helmet",
+>>>>>>> 437fc96 (run)
     `gatsby-plugin-recaptcha`,
     `gatsby-plugin-sitemap`,
   ],
@@ -42,4 +46,4 @@ module.exports = {
     image: `/src/assets/miako_fav.png`,
     siteUrl: `https://www.mia-ko.hu`,
   },
-}
+};

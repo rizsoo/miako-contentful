@@ -26,8 +26,12 @@
     "gatsby-plugin-recaptcha": "^1.0.5",
     "gatsby-plugin-sharp": "^5.14.0",
     "gatsby-plugin-sitemap": "^6.8.0",
+<<<<<<< HEAD
     "gatsby-source-contentful": "^8.14.0",
     "gatsby-transformer-sharp": "^5.14.0",
+=======
+    "gatsby-source-contentful": "^8.15.0",
+>>>>>>> 437fc96 (run)
     "lodash": "^4.17.21",
     "react": "^18.2.0",
     "react-bootstrap": "^2.7.2",
