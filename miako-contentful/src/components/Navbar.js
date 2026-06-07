@@ -128,7 +128,7 @@ export const NavContent = styled.div`
     }
     p {
       font-size: 18px;
-      color: grey;
+      color: white;
       margin: 0;
     }
   }
@@ -137,7 +137,7 @@ export const NavContent = styled.div`
   }
   ul {
     display: flex;
-    gap: 40px;
+    gap: 20px;
     margin: 0;
     span {
       display: flex;
@@ -190,6 +190,9 @@ export const NavElement = styled.li`
   display: flex;
   margin: 0;
   align-items: center;
+  padding: 8px 16px;
+  background-color: rgba(0, 0, 0, 0.5);
+  border-radius: 4px;
   ${(props) =>
     props.active ? "color: grey !important;" : "color: white !important;"};
   a {
@@ -203,6 +206,7 @@ export const NavElement = styled.li`
   transition: all ease 0.15s;
   &:hover {
     color: white;
+    background-color: rgba(0, 0, 0, 0.7);
   }
 `;
 
